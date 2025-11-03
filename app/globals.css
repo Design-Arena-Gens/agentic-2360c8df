@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+
+:root {
+  --color-warm-white: #fdfbf7;
+  --color-golden: #d4af37;
+  --color-golden-light: #f4e4bc;
+  --color-parchment: #f4e8d0;
+  --color-warm-gray: #8b7d6b;
+}
+
+body {
+  background: linear-gradient(135deg,
+    #fdfbf7 0%,
+    #f9f5ed 50%,
+    #f4e8d0 100%
+  );
+  min-height: 100vh;
+  color: #4a4a4a;
+}
+
+.navbar-glass {
+  backdrop-filter: blur(12px);
+  background: rgba(253, 251, 247, 0.85);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.navbar-scrolled {
+  background: rgba(253, 251, 247, 0.95);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+}
+
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-golden), transparent);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.logo-glow {
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+  animation: gentle-glow 3s ease-in-out infinite;
+}
+
+@keyframes gentle-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+  }
+}
+
+.verse-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.4s ease;
+}
+
+.verse-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.25);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--color-golden),
+    var(--color-golden-light),
+    var(--color-golden),
+    transparent
+  );
+}
+
+.reading-text {
+  line-height: 2;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.book-card {
+  background: linear-gradient(145deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(244, 232, 208, 0.6)
+  );
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.3);
+  border-color: var(--color-golden);
+}
+
+.decorative-divider {
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(212, 175, 55, 0.3),
+    var(--color-golden),
+    rgba(212, 175, 55, 0.3),
+    transparent
+  );
+  margin: 3rem 0;
+}
+
+.hero-section {
+  background: radial-gradient(ellipse at top,
+    rgba(244, 228, 188, 0.4),
+    transparent 70%
+  );
+}
+
+.quote-mark {
+  color: var(--color-golden);
+  opacity: 0.3;
+  font-size: 4rem;
+  line-height: 0;
+  font-family: Georgia, serif;
+}
